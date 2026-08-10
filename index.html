@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>CodeConnect</title>
+</head>
+
+<body>
+    <main>
+        <section class="menu-lateral">
+            <img class= "menu-lateral-logo" src="img/Logo.svg" alt="" class="logo">
+            <nav>
+                <ul class="nav-itens-list">
+                    <li class="nav-link link-publicar">
+                        <a href="">Publicar</a>
+                    </li>
+                    <li class="nav-link">
+                        <img src="img/feed.svg" alt="">
+                        <a href="">Feed</a>
+                    </li>
+                    <li class="nav-link">
+                        <img src="img/account_circle.svg" alt="">
+                        <a href="">Perfil</a>
+                    </li>
+                    <li class="nav-link">
+                        <img src="img/info.svg" alt="">
+                        <a href="">Sobre nós</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="">Sair</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="principal">
+
+            <div class="principal-container">
+
+                <div class="principal-container-img">
+                    <img src="img/imagem1.png" alt="">
+                </div>
+
+                
+                <button class="principal-bt-upload">Carregar imagem <img src="img/arrow_forward2.svg" alt=""></button>
+            
+
+                <div class="container-imagem-nome">
+                    <p>imagem_projeto.png</p>
+                    <img src="img/close.svg" alt="">
+                </div>
+            
+            </div>
+            
+
+            <div class="container-descricao">
+                <h2 class="container-descricao-titulo">Novo projeto</h2>
+                
+                <label class="textos-projeto-label" for="nome" >Nome do projeto</label>
+                <input class="textos-projeto-input"  type="text" id="nome" name="nome"/>
+
+                <label class="textos-projeto-label" for="descricao">Descrição</label>
+                <textarea class="textos-projeto-input"  type="text" id="descricao" name="descricao"></textarea>
+
+                <label class="textos-projeto-label" for="categoria">Tags</label>
+                <input class="textos-projeto-input"  type="text" id="categoria" name="categoria"/>
+
+                <div class="container-botoes">
+                    <button class="bt-descartar button-bt">Descartar</button>
+                    <button class="bt-publicar button-bt">Publicar</button>
+                </div>
+            </div>
+
+         
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
