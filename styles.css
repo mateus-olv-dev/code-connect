@@ -54,10 +54,12 @@ main {
     gap: 5px;
     align-items: center;
     /* width: auto; */
-    color: var(--cinza-medio);
     cursor: pointer;
+    transition: 0.3s;
 }
-
+.nav-link:hover {
+    transform: translateY(-5px);
+}
 .nav-link a {
     font-size: 22px;
     text-decoration: none;
@@ -118,6 +120,10 @@ main {
     color: var(--cinza-medio);
     font-family: var(--font-family);
     font-size: 18px;
+    transition: 0.3s;
+}
+.principal-bt-upload:hover {
+    transform: translateY(-5px);
 }
 .principal-bt-upload img {
     color: var(--cinza-medio);
@@ -165,6 +171,7 @@ main {
     border: none;
     line-height: 22.5px;
     transition: 0.3s;
+    font-size: 18px;
 }
 .textos-projeto-input {
     height: 39px;
@@ -179,6 +186,7 @@ textarea {
 
 .lista-tags {
     display: flex;
+    gap: 10px;
 }
 
 .lista-tags li {
@@ -216,6 +224,10 @@ textarea {
     padding: 12px;
     width: 50%;
     border-radius: 8px;
+    transition: 0.3s;
+}
+.button-bt:hover {
+    transform: translateY(-8px);
 }
 .bt-descartar {
     background-color: var(--cinza-escuro-section);
@@ -225,7 +237,7 @@ textarea {
     display: flex;
     align-items: center;
 }
-.bt-descartar img {
+.bt-descartar img, .bt-publicar img {
     color: var(--cinza-medio);
     width: 15px;
     height: 15px;
@@ -233,8 +245,7 @@ textarea {
     margin-left: 8px;
 }
 .bt-descartar:hover {
-    color: #132E35;
-    background-color: var(--verde-destaque);
+    background-color: var(--grafite-bg);
     border: none;
 
 }
@@ -243,10 +254,11 @@ textarea {
     background-color: var(--verde-destaque);
     border: none;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
 
 }
 .bt-publicar:hover {
-    background-color: var(--cinza-escuro-section);
+    background-color: var(--grafite-bg);
     color: var(--verde-destaque);
-    border: var(--verde-destaque) 1px solid;
 }
