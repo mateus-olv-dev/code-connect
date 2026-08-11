@@ -40,16 +40,20 @@
                 </ul>
             </nav>
         </section>
-        <section class="principal">
+        <section class="container-principal">
 
-            <div class="principal-container">
+            <div class="container-imagem" >
 
                 <div class="principal-container-img">
                     <img src="img/imagem1.png" alt="">
                 </div>
 
                 
-                <button class="principal-bt-upload">Carregar imagem <img src="img/arrow_forward2.svg" alt=""></button>
+                <button class="principal-bt-upload" id="upload-btn">
+                    Carregar imagem 
+                    <img src="img/arrow_forward2.svg" alt="">
+                </button>
+                <input type="file" id="image-upload" accept="image/" style= "display: none;">
             
 
                 <div class="container-imagem-nome">
@@ -63,17 +67,29 @@
             <div class="container-descricao">
                 <h2 class="container-descricao-titulo">Novo projeto</h2>
                 
-                <label class="textos-projeto-label" for="nome" >Nome do projeto</label>
-                <input class="textos-projeto-input"  type="text" id="nome" name="nome"/>
+                <div class="container-descricao-campos">
+                    
+                    <label class="textos-projeto-label" for="nome" >Nome do projeto</label>
+                    <input class="textos-projeto-input"  type="text" id="nome" name="nome"/>
 
-                <label class="textos-projeto-label" for="descricao">Descrição</label>
-                <textarea class="textos-projeto-input"  type="text" id="descricao" name="descricao"></textarea>
+                    <label class="textos-projeto-label" for="descricao">Descrição</label>
+                    <textarea  type="text" id="descricao" name="descricao"></textarea>
 
-                <label class="textos-projeto-label" for="categoria">Tags</label>
-                <input class="textos-projeto-input"  type="text" id="categoria" name="categoria"/>
+                    <label class="textos-projeto-label" for="categoria">Tags</label>
+                    <input class="textos-projeto-input"  type="text" id="categoria" name="categoria"/>
 
+                </div>
+                <ul class="lista-tags">
+                        <li>
+                            <p>Front-end</p>
+                            <img src="img/close-black.svg" alt="">
+                        </li>
+                </ul>
                 <div class="container-botoes">
-                    <button class="bt-descartar button-bt">Descartar</button>
+                    <button class="bt-descartar button-bt">
+                        Descartar
+                        <img src="img/trash.svg" alt="">
+                    </button>
                     <button class="bt-publicar button-bt">Publicar</button>
                 </div>
             </div>
@@ -82,7 +98,7 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
