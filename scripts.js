@@ -41,31 +41,62 @@ imageInput.addEventListener('change', async function(event) {
     }
 });
 
+
+// Define as tags que estarão disponiveis p/ serem adicionadas
+const tagsDisponiveis = ["Front-end", "Programação", "Back-end", "Full-stack"];
+
+async function verificarTags(tagTexto) {
+    return new Promise( (resolve) => {
+        setTimeout(() => {
+            // Simulação que sempre retorna uma promessa resolvida/bem sucedida
+            resolve(tagsDisponiveis.includes(tagTexto))
+        }, 500) 
+    })
+}
+
+
 const listaTags = document.querySelector(".lista-tags");
 const inputTags = document.getElementById("input-tags");
 
-
-inputTags.addEventListener("keypress", (evento) => {
+inputTags.addEventListener("keypress", async (evento) => {
     if (evento.key === "Enter") {
         evento.preventDefault();
 
         // Valor digitado dentro do input tags
         const tagTexto = inputTags.value.trim();
 
+        // se o input estiver com algum valor, será criado um novo elemento na lista com o valor do input
         if (tagTexto !== "") {
-            // se o input estiver com algum valor, será criado um novo elemento na lista com o valor do input
 
-            const tagNova = document.createElement("li");
-            tagNova.innerHTML = `<p>${tagTexto}</p> <img src ="./img/close-black.svg" class = "remove-tag"/>`;
+
+                try {
+                    // Verifica se o input digitado está contido nas tags disponiveis
+                    const tagExistente = await verificarTags(tagTexto); //retorna true ou false
+                    
+                    if (tagExistente) {
+                        // console.log("a tag está inclusa e foi adicionada");
+                        const tagNova = document.createElement("li");
+                        tagNova.innerHTML = `<p>${tagTexto}</p> <img src ="./img/close-black.svg" class = "remove-tag"/>`;
+
+                        // Adiciona a nova tag criada a lista de tags ja existente
+                        listaTags.appendChild(tagNova);
+                    } else {
+                        alert(`Tag não pode ser adicionada, pois tag não está inclusa. ${tagExistente}`);
+                    } 
+                    // Limpa o campo 
+                        inputTags.value = ""
+                   
+                }
+                catch (error) {
+                    // É um erro ao acessar a função, e não se a tag é inexistente
+                    console.log("Erro ao verificar existencia da tag"); 
+                }
             
-            // Limpa o campo 
-            inputTags.value = ""
-            // Adiciona a nova tag criada a lista de tags ja existente
-            listaTags.appendChild(tagNova);
         }
     }
 })
 
+// Evento para remover a tag adicionada por meio do botão de close 
 listaTags.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("remove-tag")){
         const tag = evento.target.parentElement;
@@ -75,15 +106,57 @@ listaTags.addEventListener("click", (evento) => {
 })
 
 
-const tagsDisponiveis = ["Front-end", "Programação", "Back-end", "Full-stack"];
+const botaoPublicar = document.querySelector(".bt-publicar");
 
-async function verificarTags(tagTexto) {
-    return new Promise( (resolve) => {
-        setTimeout(() => {
-            resolve(tagsDisponiveis.includes(tagTexto))
-        }, 1000) 
-    })
-}
+botaoPublicar.addEventListener("click", async (evento) => {
+
+    const projetoNome = document.querySelector("#nome-projeto").value;
+    const projetoDescricao = document.querySelector("#descricao-projeto").value;
+    const projetoTags = Array.from(listaTags.querySelectorAll("p").map((tag) => tag.textContent));
+
+    console.log(`Nome projeto: ${projetoNome}`);
+    console.log(`Descrição projeto: ${projetoDescricao}`);
+    console.log(`tags projeto: ${projetoTags}`);
+
+})
+
+
+const botaoDescartar = document.querySelector(".bt-descartar");
+
+botaoDescartar.addEventListener( "click", () => {
+    
+    const formulario = document.querySelector("form");
+    const imagem = document.querySelector(".container-imagem-nome img");
+    
+    formulario.reset();
+    imagem.setAttribute("src", "img/imagem1.png");
+    listaTags.innerHTML = "";
+
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // const reader = new FileReader(); //Criando uma instância do FileReader
