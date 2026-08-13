@@ -76,6 +76,7 @@ inputTags.addEventListener("keypress", async (evento) => {
                     if (tagExistente) {
                         // console.log("a tag está inclusa e foi adicionada");
                         const tagNova = document.createElement("li");
+                        tagNova.classList.add("tag-nova");
                         tagNova.innerHTML = `<p>${tagTexto}</p> <img src ="./img/close-black.svg" class = "remove-tag"/>`;
 
                         // Adiciona a nova tag criada a lista de tags ja existente
@@ -123,16 +124,26 @@ botaoPublicar.addEventListener("click", async (evento) => {
 
 const botaoDescartar = document.querySelector(".bt-descartar");
 
-botaoDescartar.addEventListener( "click", () => {
-    
-    const formulario = document.querySelector("form");
-    const imagem = document.querySelector(".container-imagem-nome img");
-    
-    formulario.reset();
-    imagem.setAttribute("src", "img/imagem1.png");
-    listaTags.innerHTML = "";
 
-    
+botaoDescartar.addEventListener( "click", () => {
+
+    const formulario = document.querySelectorAll("input");
+    const textArea = document.querySelector("textarea");
+    const tags = document.querySelectorAll(".tag-nova");
+    const imagem = document.querySelector(".imagem-principal");
+
+    formulario.forEach((elemento) => {
+        elemento.value = "";
+    })
+
+    textArea.value = "";
+
+    tags.forEach((tag) => {
+        tag.remove();
+    })    
+
+    imagem.setAttribute("src", "img/imagem1.png");
+    imagemNome.textContent = "imagem_projeto.png";
 })
 
 
